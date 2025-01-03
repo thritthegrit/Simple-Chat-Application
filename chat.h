@@ -8,7 +8,7 @@ class Chat {
         
     public:
         void write(string);
-        string display();
+        void display();
 };
 
 #endif

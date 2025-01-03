@@ -12,3 +12,14 @@ void write(string message) {
     fout << "User " + to_string(userTurn) + ": " + message <<endl;
     fout.close();
 }
+
+void display(){
+    string line;
+    ifstream fin;
+    fin.open("chstlog.txt");
+    while (fin >> line) {
+        cout<<line<<endl;
+    }
+
+    fin.close();
+}
