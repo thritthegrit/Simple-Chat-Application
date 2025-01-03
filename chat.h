@@ -7,7 +7,7 @@ using namespace std;
 class Chat {
         
     public:
-        void write(string);
+        void write();
         void display();
 };
 
