@@ -5,10 +5,9 @@
 using namespace std; 
 
 class Chat {
-    private:
-        int userTurn;
+        
     public:
-        void write();
+        void write(string);
         string display();
 };
 
