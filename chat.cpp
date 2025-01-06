@@ -50,7 +50,18 @@ void Chat::display(){
 }
 
 void Chat::switchUser(){
-
+    int choice;
+    cout<<"Current Available Users:"<<endl;
+    for (int i=0;i<users.size();i++) {
+        cout<<i<<". User ID: "<<users[i].id<<"User Name: "<<users[i].name<<endl;
+    }
+    cout<<"Select user by User ID: ";
+    cin >> choice;
+    for (int i=0;i<users.size();i++){
+        if (users[i].id==choice) {
+            
+        }
+    }
 }
 
 void Chat::addUser(int id, string name){
