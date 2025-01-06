@@ -7,8 +7,7 @@
 using namespace std;
 
 int main() {
-    vector<User> users = {User(1, "Default_1"), User(2, "Default_2")};
-
+    Chat currChat;
     ofstream("chatlog.txt");
     int choice;
 
@@ -28,9 +27,9 @@ int main() {
         cout << "\n"<<endl;
 
         if (choice==1){
-            write();
+            currChat.write();
         } else if (choice==2) {
-            display();
+            currChat.display();
         } else if (choice==3) {
             if (userTurn==1) {
                 userTurn=2;

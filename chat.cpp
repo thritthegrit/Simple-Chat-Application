@@ -2,11 +2,19 @@
 #include <string>
 #include <fstream>
 #include "chat.h"
+#include "user.h"
 using namespace std;
 
 int userTurn = 1;
 
-void write() {
+Chat::Chat(){
+    users.push_back(User(1, "Default_1"));
+    users.push_back(User(2, "Default_2"));
+
+    //vector<User> users = {User(1, "Default_1"), User(2, "Default_2")};
+}
+
+void Chat::write() {
     string message;
     cout << "Type your message: ";
     cin.ignore();
@@ -23,7 +31,7 @@ void write() {
     cout<<"Message Sent!"<<endl;
 }
 
-void display(){
+void Chat::display(){
     string line;
     ifstream fin;
     
@@ -41,7 +49,11 @@ void display(){
     fin.close();
 }
 
-void switchUSer(){
+void Chat::switchUser(){
 
+}
+
+void Chat::addUser(int id, string name){
+    users.push_back(User(id, name));
 }
 
