@@ -12,6 +12,11 @@ void write() {
     cin.ignore();
     getline(cin, message);
     ofstream fout;
+
+    if (!fout) {
+        cerr<<"Error: Unable to open chat log for writing.\n";
+    }
+
     fout.open("chatlog.txt", ios::app);
     fout << "User " << userTurn << ": " << message <<endl;
     fout.close();
@@ -21,6 +26,11 @@ void write() {
 void display(){
     string line;
     ifstream fin;
+    
+    if (!fin) {
+        cerr << "Error: Unable to open chat log for reading.\n";
+    }
+
     fin.open("chatlog.txt");
     cout<< "Chat History"<<endl;
     cout<< "------------"<<endl;
@@ -29,6 +39,10 @@ void display(){
         cout<<"\n"<<endl;
     }
     fin.close();
+}
+
+void switchUSer(){
+    
 }
 
 int main() {
@@ -66,6 +80,8 @@ int main() {
             }
         } else if (choice==4) {
             break;
+        } else {
+            cout << "Invalid choice. Try again."<<endl;
         }
 
         
