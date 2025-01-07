@@ -14,7 +14,7 @@ Chat::Chat(){
     //vector<User> users = {User(1, "Default_1"), User(2, "Default_2")};
 }
 
-void Chat::write() {
+void Chat::write(int userTurn) {
     string message;
     cout << "Type your message: ";
     cin.ignore();
@@ -49,22 +49,34 @@ void Chat::display(){
     fin.close();
 }
 
-void Chat::switchUser(){
+int Chat::switchUser(){
     int choice;
     cout<<"Current Available Users:"<<endl;
     for (int i=0;i<users.size();i++) {
-        cout<<i<<". User ID: "<<users[i].id<<"User Name: "<<users[i].name<<endl;
+        cout<<i+1<<". User ID: "<<users[i].userId<<"    User Name: "<<users[i].userName<<endl;
     }
     cout<<"Select user by User ID: ";
     cin >> choice;
     for (int i=0;i<users.size();i++){
-        if (users[i].id==choice) {
-            
+        if (users[i].userId==choice) {
+            return users[i].userId; //set current user in main
         }
     }
+    return 0;
 }
 
-void Chat::addUser(int id, string name){
+void Chat::addUser(){
+    cout<<"Current Users:"<<endl;
+    for (int i=0;i<users.size();i++) {
+        cout<<i+1<<". User ID: "<<users[i].userId<<"    User Name: "<<users[i].userName<<endl;
+    }
+    
+    int id;
+    string name;
+    cout << "Enter User Id Number: ";
+    cin >> id;
+    cout << "Enter User Name: ";
+    cin >> name;
     users.push_back(User(id, name));
 }
 

@@ -2,6 +2,8 @@
 #define CHAT_H
 #include <iostream>
 #include <string>
+#include <vector>
+#include "user.h"
 using namespace std; 
 
 class Chat {
@@ -9,10 +11,10 @@ class Chat {
     public:
         vector<User> users;
         Chat();
-        void write();
+        void write(int);
         void display();
-        void addUser(int, string);
-        void switchUser();
+        void addUser();
+        int switchUser();
 };
 
 #endif
