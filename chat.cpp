@@ -26,7 +26,7 @@ void Chat::write(int userTurn) {
     }
 
     fout.open("chatlog.txt", ios::app);
-    fout << "User " << userTurn << ": " << message <<endl;
+    fout << encryptDecrypt("User ") << encryptDecrypt(to_string(userTurn)) << encryptDecrypt(": ") << encryptDecrypt(message) <<endl;
     fout.close();
     cout<<"Message Sent!"<<endl;
 }
@@ -43,7 +43,7 @@ void Chat::display(){
     cout<< "Chat History"<<endl;
     cout<< "------------"<<endl;
     while (getline(fin, line)) {
-        cout<<line<<endl;
+        cout<<encryptDecrypt(line)<<endl;
         cout<<"\n"<<endl;
     }
     fin.close();
@@ -70,7 +70,7 @@ void Chat::addUser(){
     for (int i=0;i<users.size();i++) {
         cout<<i+1<<". User ID: "<<users[i].userId<<"    User Name: "<<users[i].userName<<endl;
     }
-    
+
     int id;
     string name;
     cout << "Enter User Id Number: ";
@@ -80,3 +80,11 @@ void Chat::addUser(){
     users.push_back(User(id, name));
 }
 
+string Chat::encryptDecrypt(const string& message) {
+    char key = 'T';
+    string output = message;
+    for  (int i = 0; i < message.length(); i++) {
+        output[i] = output[i] ^ key;
+    }
+    return output;
+}

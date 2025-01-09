@@ -15,6 +15,7 @@ class Chat {
         void display();
         void addUser();
         int switchUser();
+        string encryptDecrypt(const string&);
 };
 
 #endif
